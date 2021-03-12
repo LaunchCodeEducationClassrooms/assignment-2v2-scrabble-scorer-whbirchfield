@@ -61,9 +61,12 @@ function vowelBonusScore (word){
 
 let scrabbleScore;
 
-const scoringAlgorithms = [];
+const scoringAlgorithms = [{name: 'Simple Score', description: 'Each letter is worth 1 point.', simpleScore: function(word){return userWord}}, {name: 'Bonus Vowels', description: 'Vowels are 3 pts. consonants are 1 pt.', vowelBonusScore: function(word){return userWord}}, {name: 'Scrabble', description: 'The traditional scoring algorithm', oldScrabbleScorer: function(word){return userWord}}];
 
-function scorerPrompt() {}
+function scorerPrompt() {
+  let scoringOption = input.question("0 - for Simple Scorer\n1 - for Vowel Bonus Scorer or\n2 - for Scrabble Scorer?\nPick a scoring option from above: ");
+  return scoringOption;
+}
 
 function transform() {};
 
@@ -72,12 +75,12 @@ let newPointStructure;
 function runProgram() {
    //initialPrompt();
    console.log(vowelBonusScore(initialPrompt(userWord)));
-   console.log(simpleScore(initialPrompt(userWord)));
-   console.log(oldScrabbleScorer(initialPrompt(userWord)));
+   //console.log(simpleScore(initialPrompt(userWord)));
+   //console.log(oldScrabbleScorer(initialPrompt(userWord)));
 }
 
+console.log(scoringAlgorithms);
 
-//console.log(vowelBonusScore(initialPrompt(userWord)));
 // Don't write any code below this line //
 // And don't change these or your program will not run as expected //
 module.exports = {
