@@ -61,9 +61,13 @@ function vowelBonusScore (word){
 
 let scrabbleScore;
 
-const scoringAlgorithms = [{name: 'Scrabble', description: 'The traditional scoring algorithm', scoreFunction: 'Uses the oldScrabbleScorer() function to determine the score for a given word.'}, {name: 'Simple Score', description: 'Each letter is worth 1 point.', scoreFunction: 'A function with a parameter for user input that returns a score'}, {name: 'Bonus Vowels', description: 'Vowels are 3 pts. consonants are 1 pt.', scoreFunction: 'A function that returns a scroe based on the number of vowels and consonants.'}];
+const scoringAlgorithms = [{name: 'Simple Score', description: 'Each letter is worth 1 point.', simpleScore: function(word){return userWord}}, {name: 'Bonus Vowels', description: 'Vowels are 3 pts. consonants are 1 pt.', vowelBonusScore: function(word){return userWord}},{name: 'Scrabble', description: 'The traditional scoring algorithm', oldScrabbleScorer: function (word){return userWord}}];
 
-function scorerPrompt() {}
+function scorerPrompt() {
+  let 
+  let scoreAlgorithm = input.question("Which scorer will you like to use?\n 0 for Simple Scorer, 1 for Vowel Bonus Scorer or 2 for Scrabble Scorer? ")
+
+}
 
 function transform() {};
 
