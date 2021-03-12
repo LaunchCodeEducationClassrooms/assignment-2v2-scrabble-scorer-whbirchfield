@@ -32,13 +32,32 @@ function oldScrabbleScorer(word) {
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
 
+  let userWord = '';
 function initialPrompt() {
-   console.log("Let's play some scrabble! Enter a word:");
+   userWord = input.question("Let's play some scrabble!\n\nEnter a word to score: ");
+   return userWord;
 };
 
-let simpleScore;
+function simpleScore (word){
+  word = word.toUpperCase();
+  let num = 0;
+  for (i=0; i<word.length; i++){
+    num +=1;
+  }
+  return (`Your word score is ${num}!`);
+}
 
-let vowelBonusScore;
+function vowelBonusScore (word){
+  word = word.toUpperCase();
+  let num = 0;
+  for (i = 0; i<word.length; i++){
+    if (word[i] === 'A' || word[i] === 'E' || word[i] === 'I' || word[i] === 'O' || word[i] === 'U'){
+      num = num + 3;
+    } else {
+      num = num + 1;
+    }
+  } return (`Your word score with the vowel bonus is ${num}!`);
+}
 
 let scrabbleScore;
 
@@ -55,6 +74,7 @@ function runProgram() {
    
 }
 
+console.log(vowelBonusScore(initialPrompt(userWord)));
 // Don't write any code below this line //
 // And don't change these or your program will not run as expected //
 module.exports = {
